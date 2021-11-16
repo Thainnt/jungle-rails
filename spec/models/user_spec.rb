@@ -1,17 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+
+  before(:each) do
+    @user = User.create!(
+      first_name: "Doge",
+      last_name: "Inu",
+      email: "pup@doG.com",
+      password: "12345678",
+      password_confirmation: "12345678"
+    )
+  end
+  
   describe 'Validation' do
-    
-    before(:each) do
-      @user = User.create!(
-        first_name: "Doge",
-        last_name: "Inu",
-        email: "pup@dog.com",
-        password: "12345678",
-        password_confirmation: "12345678"
-      )
-    end
     
     it 'should create new user' do
       puts "all: #{User.all.inspect}" 
@@ -57,11 +58,20 @@ RSpec.describe User, type: :model do
       expect(@user1).to be_invalid
     end
     
-    describe '.authenticate_with_credentials' do
-      it 'should remove empty leading and trailing spaces in email when user logging in' do
-        
-      end
+    
+  end
+
+  describe '.authenticate_with_credentials' do
+    it 'should remove empty leading and trailing spaces in email when user logging in' do
+      user1 = User.authenticate_with_credentials("  pup@dog.com ", @user.password)
+      puts "user 1: #{user1.inspect}" 
+      expect(user1).to eq(@user)
     end
 
+    it 'should allow user to log in with case insensitive email' do
+      user1 = User.authenticate_with_credentials("pup@dog.COM", @user.password)
+      puts "user 1: #{user1.inspect}" 
+      expect(user1).to eq(@user)
+    end
   end
 end
