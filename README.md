@@ -38,4 +38,9 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Poltergeist
 * Database cleaner
 
-
+## Screenshots
+!["Screenshot of the home page"](https://github.com/Thainnt/jungle-rails/blob/master/docs/Jungle-homepage.png?raw=true)
+!["Screenshot of the shopping cart"](https://github.com/Thainnt/jungle-rails/blob/master/docs/Jungle-cart.png?raw=true)
+!["Screenshot of a payment"](https://github.com/Thainnt/jungle-rails/blob/master/docs/Jungle-payment.png?raw=true)
+!["Screenshot of an order"](https://github.com/Thainnt/jungle-rails/blob/master/docs/Jungle-order.png?raw=true)
+!["Screenshot of an admin page"](https://github.com/Thainnt/jungle-rails/blob/master/docs/Jungle-admin.png?raw=true)
